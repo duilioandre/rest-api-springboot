@@ -1,37 +1,35 @@
 package com.example.first_demo_spring.student;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "studente")
 public class Student {
     @Id
-    @SequenceGenerator(name = "student_squence", sequenceName = "student_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence")
-    private int id_studente;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id_studente;
     @Column(name = "nome", length = 45, nullable = false)
+    @NotNull
     private String name;
     @Column(name = "cognome", length = 45, nullable = false)
+    @NotNull
     private String cognome;
     @Column(name = "email", length = 45, nullable = false)
+    @NotNull
     private String email;
 
-    public Student(int id_studente, String name, String cognome, String email) {
-        this.id_studente = id_studente;
-        this.name = name;
-        this.cognome = cognome;
-        this.email = email;
+    public Student(String nome, String cognome, String email) {
     }
 
-    public Student() {
+    public Student() {}
 
-    }
-
-    public int getId_studente() {
+    public Long getId_studente() {
         return id_studente;
     }
 
-    public void setId_studente(int id_studente) {
+    public void setId_studente(Long id_studente) {
         this.id_studente = id_studente;
     }
 
