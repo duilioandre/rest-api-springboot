@@ -7,5 +7,3 @@ import org.springframework.stereotype.Repository;
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
 }
-
-//id forn int to long

@@ -9,7 +9,7 @@ import java.util.List;
 @Configuration
 public class StudentDataLoader {
     @Bean
-    CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
+    CommandLineRunner initDatabase(StudentRepository studentRepository) {
         return args -> {
             Student mario = new Student(
                     "mario,",
@@ -21,9 +21,14 @@ public class StudentDataLoader {
                     "ramsey",
                     "alex@example.it"
             );
+            Student roberto = new Student(
+                    "roberto,",
+                    "casiraghi",
+                    "roberto@example.it"
+            );
 
             studentRepository.saveAll(
-                    List.of(mario, alex)
+                    List.of(mario, alex, roberto)
             );
         };
     }

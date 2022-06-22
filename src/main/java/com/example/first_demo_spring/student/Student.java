@@ -1,6 +1,6 @@
 package com.example.first_demo_spring.student;
 
-import com.sun.istack.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 
@@ -8,37 +8,40 @@ import javax.persistence.*;
 @Table(name = "studente")
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_studente;
-    @Column(name = "nome", length = 45, nullable = false)
+    @GeneratedValue
+    private Long idStudente;
+    @Column(name = "nome", length = 45)
     @NotNull
-    private String name;
-    @Column(name = "cognome", length = 45, nullable = false)
+    private String nome;
+    @Column(name = "cognome", length = 45)
     @NotNull
     private String cognome;
-    @Column(name = "email", length = 45, nullable = false)
+    @Column(name = "email", length = 45)
     @NotNull
     private String email;
 
-    public Student(String nome, String cognome, String email) {
-    }
-
     public Student() {}
 
-    public Long getId_studente() {
-        return id_studente;
+    public Student(String nome, String cognome, String email) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
     }
 
-    public void setId_studente(Long id_studente) {
-        this.id_studente = id_studente;
+    public Long getIdStudente() {
+        return idStudente;
     }
 
-    public String getName() {
-        return name;
+    public void setIdStudente(Long id_studente) {
+        this.idStudente = id_studente;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String name) {
+        this.nome = name;
     }
 
     public String getCognome() {
@@ -60,8 +63,8 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "id_studente=" + id_studente +
-                ", name='" + name + '\'' +
+                "id_studente=" + idStudente +
+                ", name='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 ", email='" + email + '\'' +
                 '}';
