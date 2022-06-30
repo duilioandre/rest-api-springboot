@@ -32,8 +32,8 @@ public class Student {
         return idStudente;
     }
 
-    public void setIdStudente(Long id_studente) {
-        this.idStudente = id_studente;
+    public void setIdStudente(Long idStudente) {
+        this.idStudente = idStudente;
     }
 
     public String getNome() {
