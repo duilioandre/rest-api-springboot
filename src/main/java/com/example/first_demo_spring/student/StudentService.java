@@ -24,4 +24,8 @@ public class StudentService {
         Student student = studentDtoToEntity.map(studentDto);
         studentRepository.save(student);
     }
+
+    public void deleteStudent(Long studentId) {
+        studentRepository.deleteById(studentId);
+    }
 }
